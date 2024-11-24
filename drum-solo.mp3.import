@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drum-solo.mp3-4767123230d16a7b4a17da00cee0c987.mp3str"
+
+[deps]
+
+source_file="res://drum-solo.mp3"
+dest_files=[ "res://.import/drum-solo.mp3-4767123230d16a7b4a17da00cee0c987.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

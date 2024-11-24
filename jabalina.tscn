@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://jabalina.png" type="Texture" id=1]
+[ext_resource path="res://jabalina.gd" type="Script" id=2]
+[ext_resource path="res://hit.wav" type="AudioStream" id=3]
+[ext_resource path="res://particle.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 2 )
+
+[node name="jabalina" type="RigidBody2D"]
+pause_mode = 1
+collision_layer = 2
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2( -1.57438, 1.48207 )
+rotation = -0.523599
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="image" type="Sprite" parent="."]
+position = Vector2( -1.34385, 1.13135 )
+rotation = -0.523599
+scale = Vector2( 1, 1.01793 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.0
+
+[node name="efecto" type="Tween" parent="."]
+
+[node name="pausa" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="distance" type="Label" parent="."]
+margin_left = -12.0
+margin_top = 9.0
+margin_right = 28.0
+margin_bottom = 23.0
+rect_rotation = 150.0
+rect_pivot_offset = Vector2( 20.1941, 6.63112 )
+
+[node name="particle" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 61, -35 )
+amount = 6
+lifetime = 2.5
+speed_scale = 2.0
+explosiveness = 0.25
+randomness = 0.1
+lifetime_randomness = 0.5
+flag_align_y = true
+spread = 4.0
+gravity = Vector2( 4, 16 )
+linear_accel = 4.0
+linear_accel_random = 0.1
+radial_accel = 10.0
+radial_accel_random = 0.5
+tangential_accel = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_jabalina_body_entered"]
+[connection signal="timeout" from="pausa" to="." method="_on_pausa_timeout"]

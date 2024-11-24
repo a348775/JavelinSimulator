@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Final.gd" type="Script" id=1]
+[ext_resource path="res://celebracion.png" type="Texture" id=2]
+[ext_resource path="res://Orbitron.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Applause Crowd Cheering sound effect.mp3" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+extra_spacing_top = 2
+extra_spacing_bottom = 3
+extra_spacing_char = 1
+extra_spacing_space = 2
+font_data = ExtResource( 3 )
+
+[node name="Final" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="fondo" type="Sprite" parent="."]
+position = Vector2( 512.793, 320.969 )
+scale = Vector2( 1.11521, 0.776746 )
+texture = ExtResource( 2 )
+
+[node name="info" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 679.0
+margin_top = 31.0
+margin_right = 1013.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 1 )
+text = "Completaste la competencia"
+align = 1
+
+[node name="score" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 592.0
+margin_top = 73.0
+margin_right = 1060.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 2 )
+text = "Puntuación: "
+align = 1
+
+[node name="Regresar" type="Button" parent="."]
+visible = false
+margin_left = 453.0
+margin_top = 361.0
+margin_right = 573.0
+margin_bottom = 398.0
+custom_fonts/font = SubResource( 3 )
+text = "Regresar"
+
+[node name="salir" type="Button" parent="."]
+margin_left = 441.0
+margin_top = 544.0
+margin_right = 567.0
+margin_bottom = 581.0
+custom_fonts/font = SubResource( 3 )
+text = "Salir"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -9.204
+autoplay = true
+
+[connection signal="pressed" from="Regresar" to="." method="_on_Regresar_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BeatFondo2.mp3-77ec56934d7314e25781389249f7fc43.mp3str"
+
+[deps]
+
+source_file="res://BeatFondo2.mp3"
+dest_files=[ "res://.import/BeatFondo2.mp3-77ec56934d7314e25781389249f7fc43.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

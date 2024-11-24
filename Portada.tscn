@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PortadaFinal2.png" type="Texture" id=1]
+[ext_resource path="res://Portada.gd" type="Script" id=2]
+[ext_resource path="res://Orbitron.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="Portada" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="image" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="pausa" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="go" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 318.0
+margin_right = 569.0
+margin_bottom = 355.0
+custom_fonts/font = SubResource( 1 )
+text = "Iniciar"
+icon_align = 1
+
+[connection signal="timeout" from="pausa" to="." method="_on_pausa_timeout"]
+[connection signal="pressed" from="go" to="." method="_on_go_pressed"]
